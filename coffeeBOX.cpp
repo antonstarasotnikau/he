@@ -13,39 +13,39 @@ void offerSugar();
 
 int main()
 {
-	double totalBYN = 0.0; //общий баланс средств в кофемашине
+	double totalBYN = 0.0; //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	double priceE = 2.50;
 	double priceC = 3.50;
 	double priceL = 3.00;
 	double portionSugarWeight = 5.0;
 	double totalSugar = 1000.0;
 	int maxCups = 100;
-	
+
 	while (true) {
 		int startChoice;
 		int coffeeChoice;
 		int serviceChoice;
 		int choiceSugar;
 		int countPortionSugar;
-		double usedSugar = 0.0;	
-		double byn = 0.0;		
+		double usedSugar = 0.0;
+		double byn = 0.0;
 		int usedCups = 0;
-		
+
 		showStartMenu();
 		cout << "Your choice? ";
 		cin >> startChoice;
 		system("cls");
-		
+
 		if (startChoice == 1)
 		{
 			showCoffeeMenu();
 			cout << "Your choice? ";
 			cin >> coffeeChoice;
 			system("cls");
-		
+
 			if (coffeeChoice == 0) {
 				break;
-			}	   
+			}
 			else if (coffeeChoice == 1)
 			{
 				offerSugar();
@@ -55,10 +55,10 @@ int main()
 				if (choiceSugar == 1)
 				{
 					cout << "How many portions of sugar to add?" << endl;
-					cin >> countPortionSugar;					
+					cin >> countPortionSugar;
 					usedSugar = countPortionSugar * portionSugarWeight;
 				}
-				totalSugar -= usedSugar;				
+				totalSugar -= usedSugar;
 				system("cls");
 	    		byn += getMoney(priceE);
 	    		makeCoffee();
@@ -73,7 +73,7 @@ int main()
 				{
 					cout << "How many portions of sugar to add?" << endl;
 					cin >> countPortionSugar;
-					
+
 					usedSugar = countPortionSugar * portionSugarWeight;
 				}
 				totalSugar -= usedSugar;
@@ -92,7 +92,7 @@ int main()
 				{
 					cout << "How many portions of sugar to add?" << endl;
 					cin >> countPortionSugar;
-					
+
 					usedSugar = countPortionSugar * portionSugarWeight;
 				}
 				totalSugar -= usedSugar;
@@ -104,9 +104,9 @@ int main()
 			else {
 				cout << "Please, input [0...4]!" << endl;
 			}
-			
-			totalBYN += byn;	
-	    	
+
+			totalBYN += byn;
+
 		}
 		else if (startChoice == 2)
 		{
@@ -114,7 +114,7 @@ int main()
 			showServiceMenu();
 			cout << "Your choice? ";
 			cin >> serviceChoice;
-			
+
 			system("cls");
 		}
 		else if (startChoice == 0)
@@ -124,7 +124,7 @@ int main()
 		else
 		{
 			cout << "Please, input [1/2]" << endl;
-		}		
+		}
 	}
 	system("cls");
 	return 0;
@@ -146,9 +146,9 @@ void showCoffeeMenu()
 {
 	cout << "*** COFFEEbox MENU ***" << endl;
 	cout << endl;
-	cout << "1 - Espresso     2.5 BYN" << endl;	
+	cout << "1 - Espresso     2.5 BYN" << endl;
 	cout << "2 - Cappuccino   3.5 BYN" << endl;
-	cout << "3 - Latte        3.0 BYN" << endl;	
+	cout << "3 - Latte        3.0 BYN" << endl;
 	cout << "0 - Exit" << endl;
 	cout << endl;
 }
@@ -158,25 +158,25 @@ double getMoney(double price)
 	double cash = 0.0;
 	double sumCash = 0.0;
 	double rest;
-	double restPrice = price;	
-		
+	double restPrice = price;
+
 	while (sumCash < price)
 	{
 		cout << "   " << "Please, pay the drink fee: " << price << " BYN" << endl;
 		cout << endl;
-		cout << "You can deposit: 50 penny, 1 BYN, 2 BYN" << endl;		
-		cout << "ATTENTION! CoffeeBOX doesn't give change!\n";			
-		
+		cout << "You can deposit: 50 penny, 1 BYN, 2 BYN" << endl;
+		cout << "ATTENTION! CoffeeBOX doesn't give change!\n";
+
 		cout << "\t" << "  " << "TOTAL: " << sumCash << " BYN" << endl;
 		cout << endl;
-		cout << "Your fee: ";		
-		cin >> cash;		
-		
+		cout << "Your fee: ";
+		cin >> cash;
+
 		sumCash += cash;
 		restPrice = price - sumCash;
-		
-		system("cls");			 
-	}		
+
+		system("cls");
+	}
 	return sumCash;
 }
 
@@ -184,15 +184,15 @@ int passwordVerification()
 {
 	int pin = 1511;
 	int userInput;
-	
+
 	while (userInput != pin)
 	{
 		cout << "Please, enter PIN: " << endl;
 		cin >> userInput;
 		if (userInput != pin)
-			cout << "Invalid password! Please, try again!" << endl;		
+			cout << "Invalid password! Please, try again!" << endl;
 	}
-	system("cls");	
+	system("cls");
 	return 0;
 }
 void showServiceMenu()
@@ -226,6 +226,5 @@ void offerSugar()
 	cout << "Do you want some sugar?" << endl;
 	cout << endl;
 	cout << "1 - Yes" << endl;
-	cout << "0 - No" << endl;		
+	cout << "0 - No" << endl;
 }
-
